@@ -9,6 +9,16 @@ header {
     box-shadow: inset 1400px 0px rgba(0, 0, 0, 30%);
 }
 
+.h3,
+p {
+    margin: 0px;
+}
+
+main {
+    background-color: lightgrey;
+}
+
+/* Header section */
 .logo {
     position: relative;
     top: 50px;
@@ -21,11 +31,13 @@ header {
     color: #FFD15B;
     font-weight: 400;
     font-family: "Anton", sans-serif;
+    text-transform: uppercase;
     font-size: 44px;
     width: 700px;
     height: 500px;
     justify-self: center;
     align-content: center;
+    text-align: center;
     text-wrap: wrap;
 }
 
@@ -37,5 +49,163 @@ header {
 
 .input-search-bar {
     border: none;
-    width: 750px;
+    width: 650px;
+}
+
+/* Filters section */
+.filters {
+    margin-left: 7%;
+    padding-top: 20px;
+    margin-bottom: 50px;
+}
+
+.dropdown {
+    margin-right: 30px;
+}
+
+.dropdown .show {
+    display: block;
+}
+
+.dropdown-menu {
+    background-color: white;
+    border: 1px solid white;
+    border-top: none;
+    border-radius: 0px 0px 11px 11px;
+    margin-top: -5px !important;
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    padding: 0px;
+}
+
+.search-container {
+    margin-top: 5px;
+    position: relative;
+    padding: 0px 10px;
+    margin-bottom: 5px;
+}
+
+.filter-input {
+    padding-right: 20px;
+    border-radius: 2px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    background-clip: padding-box;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    appearance: none;
+    transition: border-color .15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.filter-list li {
+    padding: 8px 0px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.filter-list li span {
+    padding: 0 10px;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    clear: both;
+    font-weight: 400;
+    color: var(--bs-dropdown-link-color);
+    text-align: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    border-radius: var(--bs-dropdown-item-border-radius, 0);
+}
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+/* Recipes section */
+.nb-recipes {
+    color: black;
+    justify-self: end;
+    font-family: "Anton", sans-serif;
+    text-transform: uppercase;
+    margin-right: 7%;
+}
+
+.recipes-section {
+    display: flex;
+    padding: 0% 7% 0% 7%;
+    gap: 75px;
+    flex-wrap: wrap;
+}
+
+.time {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 55px;
+    display: flex;
+    background-color: #FFD15B;
+    justify-content: center;
+    border-radius: 15px;
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+}
+
+.image-recipe {
+    height: 250px;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.recipe-structure {
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.recipe-structure_title {
+    color: #7A7A7A;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.recipe-name {
+    font-family: "Anton", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.recipe-description {
+    margin-bottom: 10px;
+}
+
+.ingredient-dose {
+    color: #7A7A7A;
+}
+
+.ingredient-name {
+    font-weight: 500;
 }

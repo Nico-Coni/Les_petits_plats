@@ -15,6 +15,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/0d63e52adb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body class="container">
@@ -37,46 +38,71 @@
         </div>
     </header>
     <main>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Ingredients
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Recherche</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
+        <div class="row filters">
+            <div class="dropdown col-2">
+                <button class="btn btn-light dropdown-toggle " type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Ingredients
+                </button>
+                <div class="dropdown-menu w-100 show" data-popper-placement="bottom-start"
+                    style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 58px);">
+                    <div class="search-container">
+                        <input type="text" class="form-control filter-input">
+                        <i class="bi bi-search search-icon"></i>
+                        <i class="bi bi-x clear-icon d-none"></i>
+                    </div>
+                    <ul class="list-unstyled mb-0 filter-list" id="ingredient-list">
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown col-2">
+                <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Appareils
+                </button>
+                <div class="dropdown-menu w-100 show" data-popper-placement="bottom-start"
+                    style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 58px);">
+                    <div class="search-container">
+                        <input type="text" class="form-control filter-input">
+                        <i class="bi bi-search search-icon"></i>
+                        <i class="bi bi-x clear-icon d-none"></i>
+                    </div>
+                    <ul class="list-unstyled mb-0 filter-list" id="appliance-list">
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown col-2">
+                <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Ustensiles
+                </button>
+                <div class="dropdown-menu w-100 show" data-popper-placement="bottom-start"
+                    style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 58px);">
+                    <div class="search-container">
+                        <input type="text" class="form-control filter-input">
+                        <i class="bi bi-search search-icon"></i>
+                        <i class="bi bi-x clear-icon d-none"></i>
+                    </div>
+                    <ul class="list-unstyled mb-0 filter-list" id="ustensil-list">
+                    </ul>
+                </div>
+            </div>
+            <div class="col-5">
+                <p class="nb-recipes">1500 recettes</p>
+            </div>
         </div>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Appareils
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Recherche</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-        </div>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Ustensiles
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Recherche</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-        </div>
+        <section class="selected-tags-zone">
+            <div id="selected-tags"></div>
+        </section>
+        <section class="recipes-section" id="recipe-result">
 
+        </section>
     </main>
-    <script src="filter.js"></script>
-    <script src="index.js"></script>
-    <script src="search.js"></script>
-    <script src="apiDishes.js"></script>
-    <script src="template.js"></script>
+    <script src="data/recipes.js"></script>
+    <script src="scripts/template.js"></script>
+    <script src="scripts/filter.js"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/index.js"></script>
 </body>
 
 </html>
