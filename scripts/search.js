@@ -10,25 +10,78 @@ function applyFilters(onlyReturnFiltered = false) {
         clearIconInput.classList.add('d-none')
     }
 
-    const filteredRecipes = recipes.filter(recipe => {
-        const matchSearch = searchText === '' ||
-            recipe.name.toLowerCase().includes(searchText) ||
-            recipe.description.toLowerCase().includes(searchText) ||
-            recipe.ingredients.some(ing => ing.ingredient.toLowerCase().includes(searchText))
+    const filteredRecipes = []
 
-        const matchIngredients = selectedIngredients.every(ing =>
-            recipe.ingredients.some(i => i.ingredient === ing)
-        )
+    // on parcours toutes les recettes
+    for (let i = 0; i < recipes.length; i++) {
+        let recipe = recipes[i]
 
-        const matchAppliance = selectedAppliances.length === 0 ||
-            selectedAppliances.includes(recipe.appliance)
+        // on vérifie si la recherche match
+        let matchSearch = searchText === '' || recipe.name.toLowerCase().includes(searchText) || recipe.description.toLowerCase().includes(searchText)
+        if (!matchSearch) {
+            let j = 0
+            while (j < recipe.ingredients.length && !matchSearch) {
+                if (recipe.ingredients[j].ingredient.toLowerCase().includes(searchText)) {
+                    matchSearch = true
+                }
+                j++
+            }
+        }
 
-        const matchUstensils = selectedUstensils.every(ust =>
-            recipe.ustensils.includes(ust)
-        )
+        // on vérifie si les ingrédients matches
+        let matchIngredients = selectedIngredients.length === 0
+        if (!matchIngredients) {
+            let allIngredientsMatch = true
+            for (let k = 0; k < selectedIngredients.length && allIngredientsMatch; k++) {
+                let ing = selectedIngredients[k]
+                let found = false
+                let m = 0
+                while (m < recipe.ingredients.length && !found) {
+                    if (recipe.ingredients[m].ingredient === ing) {
+                        found = true
+                    }
+                    m++
+                }
+                allIngredientsMatch = found
+            }
+            matchIngredients = allIngredientsMatch
+        }
 
-        return matchSearch && matchIngredients && matchAppliance && matchUstensils
-    })
+        //on vérifie si les appliances match
+        let matchAppliance = selectedAppliances.length === 0
+        if (!matchAppliance) {
+            for (let n = 0; n < selectedAppliances.length; n++) {
+                if (selectedAppliances[n] === recipe.appliance) {
+                    matchAppliance = true
+                    break
+                }
+            }
+        }
+
+        // on vérifie sur les ustensiles match
+        let matchUstensils = selectedUstensils.length === 0
+        if (!matchUstensils) {
+            let allUstensilsMatch = true
+            for (let u = 0; u < selectedUstensils.length && allUstensilsMatch; u++) {
+                let ust = selectedUstensils[u]
+                let found = false
+                let q = 0
+                while (q < recipe.ustensils.length && !found) {
+                    if (recipe.ustensils[q] === ust) {
+                        found = true
+                    }
+                    q++
+                }
+                allUstensilsMatch = found
+            }
+            matchUstensils = allUstensilsMatch
+        }
+
+        //si tout est vérifié, on ajoute la recette dans les recettes filtrées
+        if (matchSearch && matchIngredients && matchAppliance && matchUstensils) {
+            filteredRecipes.push(recipe)
+        }
+    }
 
     if (onlyReturnFiltered) return filteredRecipes
 
