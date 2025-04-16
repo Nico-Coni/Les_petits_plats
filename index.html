@@ -21,18 +21,19 @@
 <body class="container">
     <header>
         <div class="logo">
-            <img src="assets/logo.png">
-            <img src="assets/dot.png">
+            <img src="assets/logo.png" alt="Logo les petits plats">
+            <img src="assets/dot.png" alt="Point du logo">
         </div>
         <div class="description">
             <p>Cherchez parmi plus de 1500 recettes du quotidien, simples et délicieuses</p>
             <nav class="navbar navbar-light">
                 <form class="form-control">
                     <label class="search-bar">
-                        <input class="form-inline input-search-bar" type="search"
+                        <input class="form-inline input-search-bar"
                             placeholder="Rechercher une recette, un ingredient, ..." aria-label="Search">
-                        <button class="btn btn-dark" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <i class="bi bi-x clear-input-icon"></i>
                     </label>
+                    <button class="btn btn-dark" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </nav>
         </div>
@@ -44,7 +45,7 @@
                     aria-expanded="false">
                     Ingredients
                 </button>
-                <div class="dropdown-menu w-100 show" data-popper-placement="bottom-start"
+                <div class="dropdown-menu w-100" data-popper-placement="bottom-start"
                     style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 58px);">
                     <div class="search-container">
                         <input type="text" class="form-control filter-input">
@@ -60,7 +61,7 @@
                     aria-expanded="false">
                     Appareils
                 </button>
-                <div class="dropdown-menu w-100 show" data-popper-placement="bottom-start"
+                <div class="dropdown-menu w-100" data-popper-placement="bottom-start"
                     style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 58px);">
                     <div class="search-container">
                         <input type="text" class="form-control filter-input">
@@ -76,12 +77,12 @@
                     aria-expanded="false">
                     Ustensiles
                 </button>
-                <div class="dropdown-menu w-100 show" data-popper-placement="bottom-start"
+                <div class="dropdown-menu w-100" data-popper-placement="bottom-start"
                     style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 58px);">
                     <div class="search-container">
                         <input type="text" class="form-control filter-input">
-                        <i class="bi bi-search search-icon"></i>
                         <i class="bi bi-x clear-icon d-none"></i>
+                        <i class="bi bi-search search-icon"></i>
                     </div>
                     <ul class="list-unstyled mb-0 filter-list" id="ustensil-list">
                     </ul>
@@ -102,6 +103,7 @@
     <script src="scripts/template.js"></script>
     <script src="scripts/filter.js"></script>
     <script src="scripts/search.js"></script>
+
     <script src="scripts/index.js"></script>
 </body>
 

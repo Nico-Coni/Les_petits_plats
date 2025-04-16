@@ -84,6 +84,7 @@ main {
     position: relative;
     padding: 0px 10px;
     margin-bottom: 5px;
+    height: 40px;
 }
 
 .filter-input {
@@ -92,7 +93,7 @@ main {
 }
 
 .form-control {
-    display: block;
+    display: flex;
     width: 100%;
     padding: .375rem .75rem;
     font-size: 1rem;
@@ -139,9 +140,68 @@ main {
     border-radius: var(--bs-dropdown-item-border-radius, 0);
 }
 
+.clear-icon {
+    cursor: pointer;
+    position: absolute;
+    top: 20%;
+    right: 30px;
+    font-size: 18px;
+}
+
+.item-list {
+    width: 100%;
+}
+
+.filter-list li.selected {
+    font-weight: bold;
+    background-color: #FFD15B;
+}
+
+.filter-list li.selected .item-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .list-unstyled {
     padding-left: 0;
     list-style: none;
+}
+
+.filter-list li:hover {
+    background-color: #FFD15B;
+}
+
+.clear-input-icon {
+    position: absolute;
+    right: 60px;
+    top: 20px;
+    cursor: pointer;
+    z-index: 9;
+    font-size: 20px;
+}
+
+.filter-tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: #FFD15B;
+    padding: 5px 10px;
+    border-radius: 11px;
+    font-size: 14px;
+    margin: 5px;
+    cursor: pointer;
+    height: 50px;
+    justify-content: space-between;
+}
+
+.filter-tag i {
+    margin-left: 25px;
+    font-size: 18px;
+}
+
+.selected-tags-zone {
+    margin-left: 7%;
+    margin-bottom: 30px;
 }
 
 /* Recipes section */
@@ -208,4 +268,9 @@ main {
 
 .ingredient-name {
     font-weight: 500;
+}
+
+.clear-input-icon.d-none,
+.clear-icon.d-none {
+    display: none;
 }

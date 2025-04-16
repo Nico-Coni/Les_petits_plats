@@ -8,6 +8,7 @@ const dropdowns = {
     ustensil: document.getElementById('ustensil-list')
 }
 
+//Mise à jour des options des dropdowns
 function updateDropdownOptions(filteredRecipes) {
     const ingredients = new Set()
     const appliances = new Set()
@@ -24,6 +25,7 @@ function updateDropdownOptions(filteredRecipes) {
     populateDropdown('ustensil', ustensils, selectedUstensils)
 }
 
+// Remplit un dropdown avec les options
 function populateDropdown(type, items, selected) {
     const list = dropdowns[type]
     list.innerHTML = ''
@@ -52,7 +54,7 @@ function populateDropdown(type, items, selected) {
     })
 }
 
-
+// Ajoute une selection
 function removeSelection(type, item) {
     if (type === 'ingredient') {
         selectedIngredients = selectedIngredients.filter(i => i !== item)
@@ -63,8 +65,10 @@ function removeSelection(type, item) {
     if (type === 'ustensil') {
         selectedUstensils = selectedUstensils.filter(i => i !== item)
     }
+    updateFilters()
 }
 
+// Supprime une sélection
 function addSelection(type, item) {
     if (type === 'ingredient' && !selectedIngredients.includes(item)) {
         selectedIngredients.push(item)
@@ -75,4 +79,37 @@ function addSelection(type, item) {
     if (type === 'ustensil' && !selectedUstensils.includes(item)) {
         selectedUstensils.push(item)
     }
+    updateFilters()
 }
+
+//Mise à jour complète des filtres
+function updateFilters() {
+    updateSelectedTags()
+    applyFilters()
+}
+
+//Affiche les tags globaux sous les dropdowns
+function updateSelectedTags() {
+    const container = document.getElementById('selected-tags')
+    container.innerHTML = ''
+    const allTags = selectedIngredients.concat(selectedAppliances, selectedUstensils)
+
+    allTags.forEach(tag => {
+        const span = document.createElement('span')
+        span.classList.add('filter-tag')
+        span.innerHTML = `${tag} <i class="bi bi-x"></i>`
+        span.querySelector('i').addEventListener('click', () => removeFromAllSelections(tag))
+        container.appendChild(span)
+    })
+
+    updateDropdownOptions(applyFilters(true))
+}
+
+//Supprime un tag global (quel que soit le filtre concerné)
+function removeFromAllSelections(tag) {
+    selectedIngredients = selectedIngredients.filter(i => i !== tag)
+    selectedAppliances = selectedAppliances.filter(i => i !== tag)
+    selectedUstensils = selectedUstensils.filter(i => i !== tag)
+    updateFilters()
+}
+
