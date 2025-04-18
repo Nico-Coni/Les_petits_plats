@@ -11,6 +11,7 @@ function getCardRecipe(recipe) {
 
   const recipeImage = document.createElement('img')
   recipeImage.src = `assets/images/${recipe.image}`
+  recipeImage.alt = `Les petits plats - ${recipe.name}`
   recipeImage.classList.add('image-recipe')
 
   const contentContainer = document.createElement('div')
